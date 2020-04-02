@@ -1,0 +1,32 @@
+{
+  "preset": "@voitanos/jest-preset-spfx-react16",
+  "rootDir": "../src",
+  "collectCoverageFrom": [
+    "<rootDir>/**/*.{ts,tsx}",
+    "!<rootDir>/**/*.scss.*",
+    "!<rootDir>/loc/**/*.*"
+  ],
+  "coverageReporters": ["text", "json", "lcov", "text-summary", "cobertura"],
+  "reporters": [
+    "default",
+    [
+      "jest-junit",
+      {
+        "suiteName": "jest tests",
+        "outputDirectory": "temp/test/junit",
+        "outputName": "junit.xml"
+      }
+    ]
+  ],
+  "setupFiles": ["jest-localstorage-mock"],
+  "transform": {
+    "^.+\\.(js|jsx)$": "babel-jest",
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
+  "transformIgnorePatterns": [
+    "node_modules/?!(@microsoft/sp-core-library|@microsoft/sp-lodash-subset|@pnp/spfx-controls-react)"
+  ],
+  "moduleNameMapper": {
+    "^office-ui-fabric-react[/\\\\]lib(.*)": "office-ui-fabric-react/lib-commonjs$1"
+  }
+}

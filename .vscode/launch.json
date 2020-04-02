@@ -1,0 +1,54 @@
+{
+  /**
+   * Install Chrome Debugger Extension for Visual Studio Code to debug your components with the
+   * Chrome browser: https://aka.ms/spfx-debugger-extensions
+   */
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Local workbench",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://localhost:4321/temp/workbench.html",
+      "webRoot": "${workspaceRoot}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///.././src/*": "${webRoot}/src/*",
+        "webpack:///../../../src/*": "${webRoot}/src/*",
+        "webpack:///../../../../src/*": "${webRoot}/src/*",
+        "webpack:///../../../../../src/*": "${webRoot}/src/*"
+      },
+      "runtimeArgs": ["--remote-debugging-port=9222"]
+    },
+    {
+      "name": "Hosted workbench",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://georgiancollege.sharepoint.com/sites/BigDataChatBotTest/_layouts/workbench.aspx",
+      "webRoot": "${workspaceRoot}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///.././src/*": "${webRoot}/src/*",
+        "webpack:///../../../src/*": "${webRoot}/src/*",
+        "webpack:///../../../../src/*": "${webRoot}/src/*",
+        "webpack:///../../../../../src/*": "${webRoot}/src/*"
+      },
+      "runtimeArgs": ["--remote-debugging-port=9222", "-incognito"]
+    },
+    {
+      "name": "Debug Jest Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/jest/bin/jest.js", //./node_modules/.bin/jest --config ./config/jest.config.json
+        "--runInBand",
+        "--config",
+        "${workspaceRoot}/config/jest.config.json"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229
+    }
+  ]
+}

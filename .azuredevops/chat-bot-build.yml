@@ -1,0 +1,25 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - /WebParts/ChatBot
+
+pr:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - /WebParts/ChatBot
+
+variables:
+  workingDirectory: WebParts/ChatBot
+  spfxPackageName: chat-bot.sppkg
+
+jobs:
+  - template: ../../../.azuredevops/build-jest.yml
+    parameters:
+      spfxPackageName: $(spfxPackageName)
+      workingDirectory: $(workingDirectory)
