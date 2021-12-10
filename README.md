@@ -1,6 +1,6 @@
 # chat-bot
 I developed a Chatbot for Georgian College's Mental Health & Well-being Sharepoint Site. It can interact with users and provide mental health-related resources based upon your question. It is developed using Azure Cognitive Service.
-[![IMAGE ALT TEXT HERE](https://imgbox.com/PAqrNVVv)](https://youtu.be/XoKHSFSEl2Y)
+[![IMAGE ALT TEXT HERE](https://imgbox.com/PAqrNVV)](https://youtu.be/XoKHSFSEl2Y)
 
 ## Global dependencies
 
